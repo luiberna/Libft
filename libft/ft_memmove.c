@@ -24,17 +24,16 @@ void *ft_memmove(void *dest, const void *src, size_t n)
     if(!tdest && !tsrc)
         return (0);
         
-    if(tdest < tsrc)
+    if(tsrc < tdest)
     {
-        
+        while(n-- > 0)
+        {
+            dest[n] = src[n];
+        }
     }
-
-// efghijkhijk
-// |   |
-//       
-
-// src < dest == left to right
-
+    else
+        ft_memcpy(dest, src, n);
+    return(dest);
 
 #include <stdio.h>
 #include <string.h>
