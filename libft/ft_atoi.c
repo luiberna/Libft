@@ -1,45 +1,52 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luiberna <luiberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/03 14:38:24 by luiberna          #+#    #+#             */
-/*   Updated: 2023/10/04 12:35:27 by luiberna         ###   ########.fr       */
+/*   Created: 2023/10/06 15:20:47 by luiberna          #+#    #+#             */
+/*   Updated: 2023/10/06 18:19:41 by luiberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
+int	ft_atoi(const char *str)
 {
-	size_t			i;
-	unsigned char	*tdest;
-	unsigned char	*tsrc;
+	int	i;
+	int	s;
+	int	nb;
 
+	nb = 0;
+	s = 1;
 	i = 0;
-	tdest = (unsigned char *)dest;
-	tsrc = (unsigned char *)src;
-	if (!dest && !src)
-		return (0);
-	while (i < n)
+	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
+		i++;
+	if (str[i] == '+' || str[i] == '-')
 	{
-		tdest[i] = tsrc[i];
+		if (str[i] == '-')
+		{
+			s = -s;
+			i++;
+		}
+		else
+			i++;
+	}
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		nb = nb * 10 + (str[i] - '0');
 		i++;
 	}
-	return (dest);
+	return (s * nb);
 }
 /*
-#include <stdio.h>
-
 int	main(void)
 {
-	char	dest[50];
+	char	*str;
 
-	char src[] = "Ora muito bom dia!";
-	ft_memcpy(dest, src, 8);
-	printf("%s", dest);
-	return (0);
+	str = " 	---++123abcd45";
+	printf("%d", ft_atoi(str));
+	return(0);
 }
 */

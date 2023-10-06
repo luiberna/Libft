@@ -1,45 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luiberna <luiberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/03 14:38:24 by luiberna          #+#    #+#             */
-/*   Updated: 2023/10/04 12:35:27 by luiberna         ###   ########.fr       */
+/*   Created: 2023/10/04 12:57:18 by luiberna          #+#    #+#             */
+/*   Updated: 2023/10/04 15:47:03 by luiberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
+size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
-	size_t			i;
-	unsigned char	*tdest;
-	unsigned char	*tsrc;
+	size_t	i;
 
 	i = 0;
-	tdest = (unsigned char *)dest;
-	tsrc = (unsigned char *)src;
-	if (!dest && !src)
-		return (0);
-	while (i < n)
+	if (size == 0)
+		return (ft_strlen(src));
+	while (src[i] && (i < (size - 1)))
 	{
-		tdest[i] = tsrc[i];
+		dst[i] = src[i];
 		i++;
 	}
-	return (dest);
+	dst[i] = '\0';
+	return (ft_strlen(src));
 }
 /*
 #include <stdio.h>
-
+#include <string.h>
+#include <stdlib.h>
 int	main(void)
 {
-	char	dest[50];
+	char tdst[50];
+	char tsrc[] = "Ora muito bom dia!";
 
-	char src[] = "Ora muito bom dia!";
-	ft_memcpy(dest, src, 8);
-	printf("%s", dest);
+	printf ("%zu\n", ft_strlcpy(tdst, tsrc, 6));
+	printf ("%s\n", strncpy(tdst, tsrc, 6));
 	return (0);
 }
 */

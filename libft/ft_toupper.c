@@ -1,45 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luiberna <luiberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/03 14:38:24 by luiberna          #+#    #+#             */
-/*   Updated: 2023/10/04 12:35:27 by luiberna         ###   ########.fr       */
+/*   Created: 2023/10/04 16:45:01 by luiberna          #+#    #+#             */
+/*   Updated: 2023/10/06 12:02:21 by luiberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
+int	ft_toupper(int c)
 {
-	size_t			i;
-	unsigned char	*tdest;
-	unsigned char	*tsrc;
-
-	i = 0;
-	tdest = (unsigned char *)dest;
-	tsrc = (unsigned char *)src;
-	if (!dest && !src)
-		return (0);
-	while (i < n)
+	if (c >= 'a' && c <= 'z')
 	{
-		tdest[i] = tsrc[i];
-		i++;
+		c = c - 32;
+		return (c);
 	}
-	return (dest);
+	else
+		return (c);
 }
-/*
-#include <stdio.h>
-
-int	main(void)
-{
-	char	dest[50];
-
-	char src[] = "Ora muito bom dia!";
-	ft_memcpy(dest, src, 8);
-	printf("%s", dest);
-	return (0);
-}
-*/

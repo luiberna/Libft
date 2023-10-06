@@ -1,45 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luiberna <luiberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/03 14:38:24 by luiberna          #+#    #+#             */
-/*   Updated: 2023/10/04 12:35:27 by luiberna         ###   ########.fr       */
+/*   Created: 2023/10/04 17:12:09 by luiberna          #+#    #+#             */
+/*   Updated: 2023/10/06 10:51:14 by luiberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
+char	*ft_strchr(const char *s, int c)
 {
-	size_t			i;
-	unsigned char	*tdest;
-	unsigned char	*tsrc;
+	int	i;
 
 	i = 0;
-	tdest = (unsigned char *)dest;
-	tsrc = (unsigned char *)src;
-	if (!dest && !src)
-		return (0);
-	while (i < n)
+	while (s[i] != (char)c)
 	{
-		tdest[i] = tsrc[i];
+		if (s[i] == '\0')
+			return (NULL);
 		i++;
 	}
-	return (dest);
+	return ((char *)(&s[i]));
 }
 /*
 #include <stdio.h>
+#include <string.h>
 
 int	main(void)
 {
-	char	dest[50];
+	int	tc;
 
-	char src[] = "Ora muito bom dia!";
-	ft_memcpy(dest, src, 8);
-	printf("%s", dest);
+	char test[] = "Ora muito bom dia!";
+	tc = 'y';
+	printf("%s\n", ft_strchr(test, tc));
+	printf("%s", strchr(test, tc));
 	return (0);
 }
 */

@@ -1,45 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luiberna <luiberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/03 14:38:24 by luiberna          #+#    #+#             */
-/*   Updated: 2023/10/04 12:35:27 by luiberna         ###   ########.fr       */
+/*   Created: 2023/10/04 15:35:25 by luiberna          #+#    #+#             */
+/*   Updated: 2023/10/04 17:09:01 by luiberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	size_t			i;
-	unsigned char	*tdest;
-	unsigned char	*tsrc;
+	size_t	i;
+	size_t	len;
 
+	len = 0;
 	i = 0;
-	tdest = (unsigned char *)dest;
-	tsrc = (unsigned char *)src;
-	if (!dest && !src)
-		return (0);
-	while (i < n)
+	if (size == 0)
+		return (ft_strlen(src));
+	while (dst[len])
+		len++;
+	while (src[i] && ((i + len) < (size - 1)))
 	{
-		tdest[i] = tsrc[i];
+		dst[i + len] = src[i];
 		i++;
 	}
-	return (dest);
+	dst[i + len] = '\0';
+	if (size < len)
+		return (ft_strlen(src) + size);
+	else
+		return (ft_strlen(src) + len);
 }
 /*
 #include <stdio.h>
+#include <string.h>
 
 int	main(void)
 {
-	char	dest[50];
-
-	char src[] = "Ora muito bom dia!";
-	ft_memcpy(dest, src, 8);
-	printf("%s", dest);
+	char tdst[20] = "Ora muito ";
+	char tsrc[] = "bom dia!";
+	printf("%ld\n", ft_strlcat(tdst, tsrc, 2));
+	printf("%s", strncat(tdst, tsrc, 2));
 	return (0);
 }
 */

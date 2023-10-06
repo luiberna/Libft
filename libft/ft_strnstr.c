@@ -1,45 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luiberna <luiberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/03 14:38:24 by luiberna          #+#    #+#             */
-/*   Updated: 2023/10/04 12:35:27 by luiberna         ###   ########.fr       */
+/*   Created: 2023/10/06 15:03:20 by luiberna          #+#    #+#             */
+/*   Updated: 2023/10/06 15:17:40 by luiberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	size_t			i;
-	unsigned char	*tdest;
-	unsigned char	*tsrc;
+	size_t	i;
+	size_t	j;
 
 	i = 0;
-	tdest = (unsigned char *)dest;
-	tsrc = (unsigned char *)src;
-	if (!dest && !src)
-		return (0);
-	while (i < n)
+	j = 0;
+	if (little[j] == '\0')
+		return ((char *)big);
+	while (big[i] != '\0' && i < len)
 	{
-		tdest[i] = tsrc[i];
+		while (big[i + j] != '\0' && big[i + j] == little[j] && i + j < len)
+		{
+			j++;
+		}
+		if (little[j] == '\0')
+		{
+			return ((char *)&big[i]);
+		}
 		i++;
+		j = 0;
 	}
-	return (dest);
+	return (0);
 }
 /*
-#include <stdio.h>
-
 int	main(void)
 {
-	char	dest[50];
-
-	char src[] = "Ora muito bom dia!";
-	ft_memcpy(dest, src, 8);
-	printf("%s", dest);
+	char big[] = "Ora muito bom dia!";
+	char little[] = "bom";
+	printf ("%s", ft_strnstr(big, little, 6));
 	return (0);
 }
 */

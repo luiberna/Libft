@@ -1,45 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luiberna <luiberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/03 14:38:24 by luiberna          #+#    #+#             */
-/*   Updated: 2023/10/04 12:35:27 by luiberna         ###   ########.fr       */
+/*   Created: 2023/10/06 12:02:58 by luiberna          #+#    #+#             */
+/*   Updated: 2023/10/06 15:19:41 by luiberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
 	size_t			i;
-	unsigned char	*tdest;
-	unsigned char	*tsrc;
+	unsigned char	*t1;
+	unsigned char	*t2;
 
 	i = 0;
-	tdest = (unsigned char *)dest;
-	tsrc = (unsigned char *)src;
-	if (!dest && !src)
+	t1 = (unsigned char *)s1;
+	t2 = (unsigned char *)s2;
+	if (n == 0)
 		return (0);
-	while (i < n)
+	while ((t1[i] == t2[i]) && (i < n - 1))
 	{
-		tdest[i] = tsrc[i];
 		i++;
 	}
-	return (dest);
+	return (t1[i] - t2[i]);
 }
 /*
-#include <stdio.h>
+#include <string.h>
 
 int	main(void)
 {
-	char	dest[50];
-
-	char src[] = "Ora muito bom dia!";
-	ft_memcpy(dest, src, 8);
-	printf("%s", dest);
+	char t1[] = "abde";
+	char t2[] = "abdc";
+	printf("%d", ft_memcmp(t1, t2, 3));
+	printf("%d", memcmp(t1, t2, 3));
 	return (0);
 }
 */
