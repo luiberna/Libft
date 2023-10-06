@@ -6,7 +6,7 @@
 /*   By: luiberna <luiberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 12:35:55 by luiberna          #+#    #+#             */
-/*   Updated: 2023/10/06 17:36:50 by luiberna         ###   ########.fr       */
+/*   Updated: 2023/10/06 19:53:47 by luiberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,7 @@ char				*ft_strnstr(const char *big, const char *little,
 int					ft_atoi(const char *str);
 void				*ft_calloc(size_t nmemb, size_t size);
 char				*ft_substr(char const *s, unsigned int start, size_t len);
+char				*ft_strdup(const char *s);
+char				*ft_strjoin(char const *s1, char const *s2);
 
 #endif
