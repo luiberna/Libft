@@ -40,13 +40,12 @@ char *ft_strtrim(char const *s1, char const *set)
     ds[i] = '\0';
     return(ds);
 }
-/*
+
 int	main(void)
 {
 	char *test;
 
-	test = ft_strtrim("123Ora muito bom dia!123", "");
+	test = ft_strtrim("laOra muito bom dia!la", "la");
 	printf("%s\n", test);
 	free(test);
 }
-*/
