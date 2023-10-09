@@ -6,7 +6,7 @@
 /*   By: luiberna <luiberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 18:26:59 by luiberna          #+#    #+#             */
-/*   Updated: 2023/10/06 20:13:13 by luiberna         ###   ########.fr       */
+/*   Updated: 2023/10/09 12:08:24 by luiberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	size_t i;
-	size_t j;
-	char *s3;
+	size_t		i;
+	size_t		j;
+	char		*s3;
 
 	j = 0;
 	i = 0;
@@ -33,6 +33,6 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		s3[i + j] = s2[j];
 		j++;
 	}
-    s3[i + j] = '\0';
+	s3[i + j] = '\0';
 	return ((char *)s3);
 }

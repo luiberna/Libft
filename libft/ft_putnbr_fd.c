@@ -3,25 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: luiberna <luiberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 17:24:03 by marvin            #+#    #+#             */
-/*   Updated: 2023/10/08 17:24:03 by marvin           ###   ########.fr       */
+/*   Updated: 2023/10/09 16:22:47 by luiberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void ft_putnbr_fd(int n, int fd)
-{
-    char	r;
+#include "libft.h"
 
+void	ft_putnbr_fd(int n, int fd)
+{
+	char	r;
+	
 	if (n == -2147483648)
 	{
 		write(fd, "-2147483648", 11);
+		return;
 	}
 	if (n < 0)
 	{
-        write(fd, "-", 1);
-	    n = -n;
+		write(fd, "-", 1);
+		n = -n;
 	}
 	if (n >= 10)
 	{
