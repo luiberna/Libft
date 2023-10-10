@@ -6,7 +6,7 @@
 /*   By: luiberna <luiberna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 17:22:22 by marvin            #+#    #+#             */
-/*   Updated: 2023/10/09 11:41:13 by luiberna         ###   ########.fr       */
+/*   Updated: 2023/10/10 17:49:11 by luiberna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_putendl_fd(char *s, int fd)
 	int	i;
 
 	i = 0;
-	while (s[i] && fd >= 0)
+	while (s[i])
 	{
 		write(fd, &s[i], 1);
 		i++;
